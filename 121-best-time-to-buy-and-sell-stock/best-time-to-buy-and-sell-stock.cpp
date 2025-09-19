@@ -5,11 +5,13 @@ public:
         int mini=prices[0];
         int profit=0;
         for(int i=0;i<n;i++){
-            int cost=prices[i]-mini;
-            profit=max(profit,cost);
-            mini=min(mini,prices[i]);
+            if(prices[i]<mini){
+                mini=prices[i];
+            }
+        else if((prices[i]-mini)>profit)
+           profit=prices[i]-mini;
+        
         }
         return profit;
-        
-    }
+    }   
 };
