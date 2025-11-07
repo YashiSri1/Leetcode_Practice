@@ -9,16 +9,10 @@ public:
         else{
             sort(s.begin(),s.end());
             sort(t.begin(),t.end());
-            for(int i=0;i<s1;i++){
-                if(s[i]==t[i])
-                found++;
-                else
-                found=0;
-            }
-          if(found==s1)
-          return true;
-          else
-          return false;
+            if(s.compare(t)==0)
+            return true;
+            else
+            return false;
         }
         
     }
