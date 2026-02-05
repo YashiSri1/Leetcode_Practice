@@ -14,7 +14,6 @@ public:
       if (!head || !head->next)
             return true;
 
-        // Step 1: Find middle
         ListNode* slow = head;
         ListNode* fast = head;
         while (fast->next && fast->next->next) {
