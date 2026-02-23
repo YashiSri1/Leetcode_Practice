@@ -1,7 +1,7 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        int arr,final;
+        int arr;
         for(int i=0;i<nums.size();i++){
              arr=nums[i];
              int cnt=0;
@@ -11,8 +11,8 @@ public:
                 }
              }
              if(cnt==1) 
-             final=arr;
+              return arr;
         }
-        return final;
+        return arr;
     }
 };
