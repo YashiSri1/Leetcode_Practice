@@ -7,6 +7,6 @@ public:
             i+=2;
             if(!num) return true;
         }
-        return false;  
+        return false; 
     }
 };
