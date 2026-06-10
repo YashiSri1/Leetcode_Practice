@@ -1,7 +1,7 @@
 class Solution {
 public:
-    bool isPalindrome(int x) {
-        if (x < 0) {
+        bool isPalindrome(int x) {
+       if (x < 0) {
             return false;
         }
         long rev=0 ;
@@ -16,6 +16,6 @@ public:
       if(rev==xcopy)
 return true;
 else 
-return false;        
+return false;   
     }
 };
