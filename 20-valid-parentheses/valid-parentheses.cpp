@@ -9,12 +9,14 @@ public:
                 if (st.empty()) {
                     return false;
                 }
-                char top = st.top();
-                st.pop();
-                if (ch == ')' && top != '(') return false;
-                if (ch == ']' && top != '[') return false;
-                if (ch == '}' && top != '{') return false;
+                
+                if ((st.top()=='(' && ch==')') || (st.top()=='{' && ch=='}') ||
+                (st.top()=='[' && ch==']')) {
+                    st.pop();                
+            }else{
+                return false;
             }
+        }
         }
         return st.empty();
     }
