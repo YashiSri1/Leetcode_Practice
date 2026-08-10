@@ -2,7 +2,7 @@ class Solution {
 public:
 void getSubsets(vector<int>& nums, vector<int> &ans, int i,  vector<vector<int>> &allSubsets){
     if(i==nums.size()){
-        allSubsets.push_back({ans});
+        allSubsets.push_back(ans);
         return;
     }
     //include
