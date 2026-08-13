@@ -1,24 +1,28 @@
 class Solution {
 public:
-   void backtrack(vector<int>& candidates, int target, vector<vector<int>>& res,
-                   vector<int>& combi, int sum, int index) {
-        if (sum == target) {
-            res.push_back(combi);
-            return;
+set <vector<int>> s;
+   void getAllCombination(vector<int>& arr, int idx,int tar, vector<vector<int>> &ans, vector<int> &combin){
+      if(idx==arr.size() || tar<0){
+        return;
+      }
+      if(tar==0){
+        if(s.find(combin)==s.end()){
+        ans.push_back({combin});
+        s.insert(combin);
         }
-        if (sum > target) return;
+      return;
+      }
+      combin.push_back(arr[idx]);
+      getAllCombination(arr, idx+1, tar-arr[idx],ans, combin);
+      getAllCombination(arr, idx, tar-arr[idx],ans, combin);
+      combin.pop_back();
+      getAllCombination(arr, idx+1, tar,ans, combin);
+   }
 
-        for (int i = index; i < candidates.size(); ++i) {
-            combi.push_back(candidates[i]);
-            backtrack(candidates, target, res, combi, sum + candidates[i], i); 
-            combi.pop_back(); 
-        }
-    }
-
-    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        vector<vector<int>> res;
-        vector<int> combi;
-        backtrack(candidates, target, res, combi, 0, 0);
-        return res;
+    vector<vector<int>> combinationSum(vector<int>& arr, int target) {
+        vector<vector<int>> ans;
+        vector<int> combin;
+        getAllCombination(arr, 0, target,ans, combin);
+        return ans;
     }
 };
