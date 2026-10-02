@@ -16,10 +16,12 @@ public:
         int hl=0, hr=0;
         TreeNode *l=root, *r=root;
         while(l) {
-            hl++;l=l->left;
+            hl++;
+            l=l->left;
             }
         while(r) {
-            hr++;r=r->right;
+            hr++;
+            r=r->right;
             }
 
         if(hl==hr) 
